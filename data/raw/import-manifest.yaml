@@ -1,0 +1,34 @@
+imports:
+  - dataset_id: gpu-userbenchmarks-csv
+    logical_name: GPU UserBenchmarks
+    source_type: local_file
+    source_url: https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_d7a6bff8-7b8f-4931-8312-115cb3e5a529/b0ba5bd7-3383-46a0-97a6-7ac6fa388154/GPU_UserBenchmarks.csv
+    source_path: /home/user/workspace/space_files/collection_d7a6bff8-7b8f-4931-8312-115cb3e5a529/b0ba5bd7-3383-46a0-97a6-7ac6fa388154/GPU_UserBenchmarks.csv
+    target_raw_path: data/raw/gpu-userbenchmarks/GPU_UserBenchmarks.csv
+    format: csv
+    intended_use:
+      - gpu benchmark seed data
+      - entity resolution aliases
+    status: pending_copy
+  - dataset_id: pcbuild-xlsx
+    logical_name: PCBuild Workbook
+    source_type: local_file
+    source_url: https://ppl-ai-file-upload.s3.amazonaws.com/connectors/google_drive/17Ke-6W8b4Z2sYPTA650yH7_d4kZ8Nq-kvk5JjMIWotQ/cbc44976-e4c9-4469-b3ef-65bddccd1f28/PCBuild.xlsx
+    source_path: /home/user/workspace/space_files/PCBuild
+    target_raw_path: data/raw/pcbuild/PCBuild.xlsx
+    format: xlsx
+    intended_use:
+      - cpu benchmark seed data
+      - value scoring seed data
+    status: pending_copy
+  - dataset_id: amd-radeon-xfx-analysis-xlsx
+    logical_name: AMD Radeon XFX Graphics Cards Analysis
+    source_type: local_file
+    source_url: https://ppl-ai-file-upload.s3.amazonaws.com/connectors/google_drive/1GN4zWKGT6WtIg5YDu5PygcFHIYd13ULFymEYtXRz_iU/b558d15f-1c5e-4278-acff-02dec86a01ea/AMD-Radeon-XFX-Graphics-Cards-Analysis-04-11-2025.xlsx
+    source_path: /home/user/workspace/space_files/2025
+    target_raw_path: data/raw/amd-radeon-xfx-analysis/AMD-Radeon-XFX-Graphics-Cards-Analysis-04-11-2025.xlsx
+    format: xlsx
+    intended_use:
+      - gpu pricing seed data
+      - benchmark cross-reference seed data
+    status: pending_copy

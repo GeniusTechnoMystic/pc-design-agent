@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pc-design-agent.local/schemas/recommendation-output.schema.json",
+  "title": "Recommendation Output",
+  "description": "Structured recommendation payload for a generated PC build or comparison result.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "recommendation_id",
+    "generated_at",
+    "workload_profile",
+    "compatibility_verdict",
+    "components",
+    "cost_summary",
+    "scores",
+    "evidence_links",
+    "caveats"
+  ],
+  "properties": {
+    "recommendation_id": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "workload_profile": { "type": "string" },
+    "summary": { "type": ["string", "null"] },
+    "compatibility_verdict": {
+      "type": "string",
+      "enum": ["pass", "pass_with_warnings", "needs_review", "fail"]
+    },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["slot", "entity_type", "display_name"],
+        "properties": {
+          "slot": { "type": "string" },
+          "entity_type": { "type": "string" },
+          "canonical_entity_id": { "type": ["string", "null"] },
+          "display_name": { "type": "string" },
+          "cost_nzd": { "type": ["number", "null"] },
+          "condition": { "type": ["string", "null"] },
+          "source_url": { "type": ["string", "null"], "format": "uri" }
+        }
+      }
+    },
+    "cost_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["currency", "subtotal_nzd", "shipping_nzd", "landed_total_nzd"],
+      "properties": {
+        "currency": { "type": "string" },
+        "subtotal_nzd": { "type": "number" },
+        "shipping_nzd": { "type": "number" },
+        "landed_total_nzd": { "type": "number" },
+        "used_share_percent": { "type": ["number", "null"] }
+      }
+    },
+    "scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["single_thread", "multi_thread", "io_throughput", "memory", "linux_support", "firmware_openness", "lifecycle", "value"],
+      "properties": {
+        "single_thread": { "type": "number" },
+        "multi_thread": { "type": "number" },
+        "io_throughput": { "type": "number" },
+        "memory": { "type": "number" },
+        "linux_support": { "type": "number" },
+        "firmware_openness": { "type": "number" },
+        "lifecycle": { "type": "number" },
+        "value": { "type": "number" },
+        "repairability": { "type": ["number", "null"] },
+        "noise_efficiency": { "type": ["number", "null"] }
+      }
+    },
+    "linux_support_notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "firmware_openness_notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "caveats": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "evidence_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "url"],
+        "properties": {
+          "label": { "type": "string" },
+          "url": { "type": "string", "format": "uri" }
+        }
+      }
+    }
+  }
+}
