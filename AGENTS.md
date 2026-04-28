@@ -15,10 +15,12 @@ Build and operate a source-grounded PC design agent that models component compat
 
 ## Required outputs
 
+- Read `PROGRESS.md`, `STREAMS.md`, `ARCHITECT.md`, and `ROADMAP.md` before starting substantial work.
 - Save design and planning docs in `docs/`.
 - Save reusable operating guidance in `.agents/`.
 - Include source URLs in all research-heavy docs.
 - Flag uncertain or conflicting facts instead of silently collapsing them.
+- Update root-level status files in the same commit as meaningful work changes.
 
 ## Repository conventions
 
@@ -31,8 +33,9 @@ Build and operate a source-grounded PC design agent that models component compat
 
 ## Initial operating loop
 
-1. Ingest or update source data.
-2. Resolve entities and reconcile facts.
-3. Validate compatibility rules and derived metrics.
-4. Run recommendation or comparison workflows.
-5. Record caveats, missing data, and next improvements.
+1. Read root-level status files and identify the active stream.
+2. Ingest or update source data.
+3. Resolve entities and reconcile facts.
+4. Validate compatibility rules and derived metrics.
+5. Run recommendation or comparison workflows.
+6. Record caveats, missing data, next improvements, and status-file updates.
