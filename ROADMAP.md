@@ -45,8 +45,8 @@ graph TD
 
 ## Near-term sequencing
 
-1. Finish M1
-2. Start M2
+1. M1 is complete
+2. Start M2 on resume
 3. Parallelize M3 design work with M2 imports when practical
 4. Use M4 as the first end-to-end validation target
 5. Treat M5 as a controlled pilot, not a fully scaled ingestion commitment

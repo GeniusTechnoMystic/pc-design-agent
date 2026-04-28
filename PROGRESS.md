@@ -17,8 +17,8 @@ Milestone: Foundations and execution primitives
 
 ## Active
 
-- [>] Start the local data ingestion baseline
-- [>] Prepare schema examples and SQL foundations
+- [>] Project paused to control token usage
+- [>] Resume with local data ingestion baseline and schema examples
 
 ## Queued
 
@@ -48,3 +48,6 @@ Milestone: Foundations and execution primitives
 1. Copy local Space datasets into `data/raw/`
 2. Add example payloads for the current schemas
 3. Draft SQL DDL for entities, facts, edges, offers, and listings
+4. Add parser stubs for CSV and XLSX imports
+5. Add compatibility-edge, price-offer, shipping-quote, lifecycle, and repairability schemas
+6. Decide marketplace ingestion mode and record the decision in the root-level status files
