@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pc-design-agent.local/schemas/source-fact.schema.json",
+  "title": "Source Fact",
+  "description": "Normalized fact emitted by an ingestion adapter with provenance and confidence.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "fact_id",
+    "entity_candidates",
+    "attribute_name",
+    "value_type",
+    "source_name",
+    "source_url",
+    "retrieved_at",
+    "confidence_score"
+  ],
+  "properties": {
+    "fact_id": { "type": "string" },
+    "source_entity_key": { "type": ["string", "null"] },
+    "entity_candidates": {
+      "type": "array",
+      "items": { "$ref": "./entity-candidate.schema.json" },
+      "minItems": 1
+    },
+    "attribute_name": { "type": "string" },
+    "value_type": {
+      "type": "string",
+      "enum": ["string", "number", "integer", "boolean", "array", "object", "null"]
+    },
+    "value_string": { "type": ["string", "null"] },
+    "value_number": { "type": ["number", "null"] },
+    "value_integer": { "type": ["integer", "null"] },
+    "value_boolean": { "type": ["boolean", "null"] },
+    "value_json": { "type": ["object", "array", "null"] },
+    "unit": { "type": ["string", "null"] },
+    "source_name": { "type": "string" },
+    "source_url": { "type": "string", "format": "uri" },
+    "source_type": {
+      "type": "string",
+      "enum": ["official_spec", "retailer", "marketplace", "benchmark", "linux_support", "firmware", "manual", "community", "local_file", "other"]
+    },
+    "retrieved_at": { "type": "string", "format": "date-time" },
+    "effective_date": { "type": ["string", "null"], "format": "date" },
+    "confidence_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "extraction_method": {
+      "type": ["string", "null"],
+      "enum": ["api", "html_parse", "browser_capture", "pdf_parse", "csv_import", "xlsx_import", "manual", null]
+    },
+    "raw_capture_ref": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}

@@ -1,0 +1,11 @@
+M1: Status and execution control surface
+M2: Local data ingestion baseline
+M3: Canonical database baseline
+M4: CPU and GPU proof of concept
+M5: Marketplace ingestion decision and pilot
+
+M1 -> M2
+M2 -> M3
+M3 -> M4
+M1 -> M5
+M3 -> M5
