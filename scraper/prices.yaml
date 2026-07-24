@@ -1,0 +1,127 @@
+# =============================================================================
+# PC Design Agent — NZ Retailer Price Scraper Config
+# =============================================================================
+# Configure which components to scrape from each NZ retailer.
+# Each retailer can have:
+#   - search queries (pbtech): the scraper hits the search endpoint
+#   - manual URL paths (computerlounge, mightyape, 1stwave, paradigmpcs):
+#     the scraper follows the configured category pages
+# =============================================================================
+
+retailers:
+  pbtech:
+    base_url: https://www.pbtech.co.nz
+    search_path: /search?q={query}
+    user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+    components:
+      - query: CPU
+        category: cpu
+      - query: "Graphics Card"
+        category: gpu
+      - query: Motherboard
+        category: motherboard
+      - query: RAM
+        category: ram
+      - query: SSD
+        category: storage
+      - query: Power Supply
+        category: psu
+      - query: PC Case
+        category: case
+      - query: CPU Cooler
+        category: cooler
+
+  computerlounge:
+    base_url: https://www.computerlounge.co.nz
+    user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+    components:
+      - url: /components/cpus
+        category: cpu
+      - url: /components/graphics-cards
+        category: gpu
+      - url: /components/motherboards
+        category: motherboard
+      - url: /components/memory
+        category: ram
+      - url: /components/storage
+        category: storage
+      - url: /components/power-supplies
+        category: psu
+      - url: /components/cases
+        category: case
+      - url: /components/cooling
+        category: cooler
+
+  mightyape:
+    base_url: https://www.mightyape.co.nz
+    user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+    components:
+      - url: /computers/components/cpus-processors
+        category: cpu
+      - url: /computers/components/graphics-cards
+        category: gpu
+      - url: /computers/components/motherboards
+        category: motherboard
+      - url: /computers/components/memory-ram
+        category: ram
+      - url: /computers/components/storage
+        category: storage
+      - url: /computers/components/power-supplies
+        category: psu
+      - url: /computers/components/cases
+        category: case
+      - url: /computers/components/cooling-fans
+        category: cooler
+
+  1stwave:
+    base_url: https://www.1stwave.co.nz
+    user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+    components:
+      - url: /categories/cpu-processors
+        category: cpu
+      - url: /categories/graphics-cards
+        category: gpu
+      - url: /categories/motherboards
+        category: motherboard
+      - url: /categories/memory-ram
+        category: ram
+      - url: /categories/storage
+        category: storage
+      - url: /categories/power-supplies
+        category: psu
+      - url: /categories/pc-cases
+        category: case
+      - url: /categories/cooling
+        category: cooler
+
+  paradigmpcs:
+    base_url: https://www.paradigmpcs.co.nz
+    user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+    components:
+      - url: /collections/cpu
+        category: cpu
+      - url: /collections/graphics-cards
+        category: gpu
+      - url: /collections/motherboards
+        category: motherboard
+      - url: /collections/memory
+        category: ram
+      - url: /collections/storage
+        category: storage
+      - url: /collections/power-supplies
+        category: psu
+      - url: /collections/cases
+        category: case
+      - url: /collections/cooling
+        category: cooler
+
+# =============================================================================
+# Scraper settings
+# =============================================================================
+settings:
+  request_timeout: 30            # HTTP request timeout in seconds
+  retry_attempts: 2               # Number of retries on failure
+  retry_delay: 5                  # Delay between retries in seconds
+  output_dir: ~/.hermes/data/pc-design-agent/prices/
+  date_format: "%Y-%m-%dT%H:%M:%S%z"
+  log_level: INFO
