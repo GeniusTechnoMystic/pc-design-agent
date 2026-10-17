@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+psycopg[binary]
+sqlalchemy
+alembic
+boto3
+requests
+beautifulsoup4
+pytest
+ruff
+black
